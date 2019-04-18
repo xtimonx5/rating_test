@@ -29,3 +29,14 @@ Allowed endpoints:
  
  
 2. `127.0.0.1/api/leaderboard/${N}` - To find who is on N place and also it's "neighbors" 
+
+
+
+
+h3. Make commands (execute from base dir or project)
+
+`make show_queue` - show queues if rabbitmq
+
+`make test` - run unit tests\
+
+`make run_sender` - run simple rabbitmq message sender for 10000 messages. (just for developer test)
