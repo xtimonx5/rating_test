@@ -34,10 +34,10 @@ Allowed endpoints:
 
 
 
-h3. Make commands (execute from base dir or project)
+Make commands (execute from base dir or project)
 
-`make show_queue` - show queues if rabbitmq
+1. `make show_queue` - show queues if rabbitmq
 
-`make test` - run unit tests\
+2. `make test` - run unit tests\
 
-`make run_sender` - run simple rabbitmq message sender for 10000 messages. (just for developer test)
+3. `make run_sender` - run simple rabbitmq message sender for 10000 messages. (just for developer test)
