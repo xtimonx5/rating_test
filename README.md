@@ -14,7 +14,8 @@ Allowed endpoints:
 
 1. `127.0.0.1:8000/api/leaderboard/` - paginated leaderboard.
 
-    allowed query_params: 
+    allowed query_params:
+     
         1.1`?rate_place=N`, - concrete rate place (N) 
         
         1.2`?rate_place__gt=N` - rate place greater than N
