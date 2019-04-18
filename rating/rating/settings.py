@@ -220,3 +220,6 @@ CACHES = {
         "KEY_PREFIX": "example"
     }
 }
+
+
+LEADERBOARD_REFRESH_TIMER = 30

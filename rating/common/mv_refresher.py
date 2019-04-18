@@ -3,6 +3,7 @@ from time import sleep
 
 from django.core.cache import cache
 from django.db import connection
+from django.conf import settings
 
 
 class MVRefresherThread(threading.Thread):
@@ -13,4 +14,4 @@ class MVRefresherThread(threading.Thread):
                     'select refresh_leaderboard_mv();')  # we're calling psql function instead of direct refreshing to prevent spawning idle queries in pg_stat_activity;
 
             cache.clear()
-            sleep(60)
+            sleep(settings.LEADERBOARD_REFRESH_TIMER)
