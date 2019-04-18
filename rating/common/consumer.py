@@ -33,5 +33,4 @@ class AMQPConsumer(threading.Thread):
 
         channel.basic_qos(prefetch_count=1)
         channel.basic_consume(on_message_callback=self.message_handler, queue=settings.QUEUE_NAME, auto_ack=True)
-        print('LISTENING')
         channel.start_consuming()

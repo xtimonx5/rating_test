@@ -12,7 +12,7 @@ pip_install:
 	$(_execc) --user=root app pip3 install -r requirements.txt
 
 test:
-	$(_django_execc) python manage.py test tests
+	$(_django_execc) python manage.py test
 
 run_sender:
 	$(_django_execc) python sender.py

@@ -142,7 +142,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
 import sys
 
-TESTING = sys.argv[1:2] == ['test']
+TESTING = sys.argv[1:2] == ['test'] or sys.argv[1:2] == ['migrate']
 
 ############################
 #
