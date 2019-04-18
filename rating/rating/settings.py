@@ -203,7 +203,7 @@ LOGGING = {
     },
     'loggers': {
         'amqp': {
-            'handlers': ['amqp'],
+            'handlers': ['amqp',],
             'level': 'DEBUG',
             'propagate': False,
         },

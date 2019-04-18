@@ -8,6 +8,7 @@ class CommonConfig(AppConfig):
     def ready(self):
         from .consumer import AMQPConsumer  # to be imported when apps are ready
         from .crontab import RefreshMVCrontab  # ^
+        from .mv_refresher import MVRefresherThread
 
         cron = RefreshMVCrontab()
 
@@ -19,3 +20,9 @@ class CommonConfig(AppConfig):
         if not settings.TESTING:
             cron.configure_job()
             cron.run(interval=1)
+
+        if not settings.TESTING:
+            refresher = MVRefresherThread()
+            refresher.daemon = True
+            refresher.start()
+

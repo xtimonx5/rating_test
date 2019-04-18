@@ -20,11 +20,18 @@ class AMQPConsumer(threading.Thread):
         return pika.BlockingConnection(parameters)
 
     def run(self):
-        connection = self._get_connection()
+        try:
+            connection = self._get_connection()
+        except:
+            from time import sleep
+            sleep(1)
+            print('rabbimq is not listening. waiting')
+            self.run()
         channel = connection.channel()
 
         channel.queue_declare(queue=settings.QUEUE_NAME)
 
         channel.basic_qos(prefetch_count=1)
         channel.basic_consume(on_message_callback=self.message_handler, queue=settings.QUEUE_NAME, auto_ack=True)
+        print('LISTENING')
         channel.start_consuming()
