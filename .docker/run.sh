@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+python /opt/django/wait_for_psql.py
 gosu root /usr/sbin/cron start;
 
 if [ $DEBUG = "true" ]; then
