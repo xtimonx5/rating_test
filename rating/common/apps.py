@@ -7,7 +7,7 @@ class CommonConfig(AppConfig):
 
     def ready(self):
         from .consumer import AMQPConsumer  # to be imported when apps are ready
-        from .mv_refresher import MVRefresherThread # ^
+        from .mv_refresher import MVRefresherThread  # ^
 
         if not settings.TESTING:
             consumer = AMQPConsumer()

@@ -1,6 +1,6 @@
-from django.test import TestCase
-from common.models import RateRecord, LeaderBoard
 from datetime import timedelta, datetime
+
+from common.models import RateRecord, LeaderBoard
 from .common import CommonRatingTest
 
 

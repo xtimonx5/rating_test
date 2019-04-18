@@ -1,9 +1,10 @@
+import json
+from datetime import datetime
+from random import random
+
 from rest_framework.test import APIClient
 
 from common.models import RateRecord
-from datetime import datetime
-import json
-from random import random
 from .common import CommonRatingTest
 
 

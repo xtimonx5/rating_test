@@ -1,6 +1,6 @@
-from django.test import TestCase
 from django.core.cache import cache
 from django.db import connection
+from django.test import TestCase
 
 
 class CommonRatingTest(TestCase):
