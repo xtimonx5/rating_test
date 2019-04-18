@@ -1,0 +1,54 @@
+---
+
+version: '2'
+services:
+
+  db:
+    image: postgres:10.7
+    env_file: ./db.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3.7.14 # latest for current
+    volumes:
+      - ./rabbit_data:/var/lib/rabbitmq
+    env_file: ./rabbitmq.env
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis:/data
+
+  app:
+    build: ./.docker/
+#    command: /opt/django/.docker/debug.sh
+    command: /opt/run.sh
+    env_file:
+      - ./app.env
+      - ./db.env
+    depends_on:
+      - db
+      - rabbitmq
+      - redis
+    ports:
+      - "8000:8000"
+      - "1022:22" # for debug via ssh
+    volumes:
+      - "./rating:/opt/django"
+
+volumes:
+  app:
+    driver: local
+  db:
+    driver: local
+  rabbitmq:
+    driver: local
+  redis:
+    driver: local
+#  static:
+#    driver: local

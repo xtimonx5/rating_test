@@ -1,0 +1,8 @@
+django
+pika
+psycopg2
+djangorestframework
+django-filter
+python-crontab
+django-redis
+mock
